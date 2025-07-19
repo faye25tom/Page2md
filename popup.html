@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page2md</title>
+    <link rel="stylesheet" href="src/popup.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Page2md</h1>
+        <div class="selection-methods">
+            <button id="selectElement" class="btn primary">选择网页内容</button>
+            <button id="selectMain" class="btn primary">一键提取文章</button>
+        </div>
+
+        <div id="previewContainer" class="hidden">
+            <h2>预览</h2>
+            <div id="markdownPreview" class="preview"></div>
+        </div>
+
+        <div class="actions">
+            <button id="downloadMarkdown" class="btn primary" disabled>下载为Markdown</button>
+        </div>
+
+        <div class="footer">
+            <button id="openOptions" class="btn small">设置</button>
+            <span class="version">v1.0.0</span>
+        </div>
+    </div>
+    <script src="src/turndown.js"></script>
+    <script src="src/popup.js"></script>
+</body>
+
+</html>

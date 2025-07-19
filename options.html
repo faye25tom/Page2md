@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page2md 设置</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #4285f4;
+    }
+    
+    .section {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+      font-size: 18px;
+      margin-top: 0;
+      margin-bottom: 16px;
+      color: #333;
+    }
+    
+    .form-group {
+      margin-bottom: 16px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    
+    textarea {
+      min-height: 100px;
+      font-family: monospace;
+    }
+    
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+    }
+    
+    .checkbox-group input {
+      margin-right: 8px;
+    }
+    
+    button {
+      padding: 8px 16px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background-color: #3367d6;
+    }
+    
+    .status {
+      margin-top: 16px;
+      padding: 8px;
+      border-radius: 4px;
+    }
+    
+    .success {
+      background-color: #d4edda;
+      color: #155724;
+    }
+    
+    .error {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+    
+    .info {
+      font-size: 14px;
+      color: #666;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Page2md 设置</h1>
+  
+  <div class="section">
+    <h2>Markdown 转换设置</h2>
+    
+    <div class="form-group">
+      <label for="headingStyle">标题样式</label>
+      <select id="headingStyle">
+        <option value="atx"># 风格 (ATX)</option>
+        <option value="setext">下划线风格 (Setext)</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="bulletListMarker">无序列表标记</label>
+      <select id="bulletListMarker">
+        <option value="-">- 短横线</option>
+        <option value="*">* 星号</option>
+        <option value="+">+ 加号</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="codeBlockStyle">代码块样式</label>
+      <select id="codeBlockStyle">
+        <option value="fenced">围栏式 (```)</option>
+        <option value="indented">缩进式 (4空格)</option>
+      </select>
+    </div>
+    
+    <div class="form-group checkbox-group">
+      <input type="checkbox" id="preserveImages" checked>
+      <label for="preserveImages">保留图片</label>
+    </div>
+    
+    <div class="form-group checkbox-group">
+      <input type="checkbox" id="preserveLinks" checked>
+      <label for="preserveLinks">保留链接</label>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>内容选择设置</h2>
+    
+    <div class="form-group">
+      <label for="defaultSelectors">默认CSS选择器（每行一个）</label>
+      <textarea id="defaultSelectors">article
+main
+.article
+.post
+.content
+.main-content
+#content
+#main
+.article-content
+.post-content</textarea>
+      <div class="info">这些选择器将用于"提取主要内容"功能</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="excludeSelectors">排除元素的选择器（每行一个）</label>
+      <textarea id="excludeSelectors">nav
+header
+footer
+.navigation
+.menu
+.sidebar
+.comments
+.related
+.advertisement
+script
+style
+iframe</textarea>
+      <div class="info">这些元素将在转换前被移除</div>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>文件设置</h2>
+    
+    <div class="form-group">
+      <label for="filenameTemplate">文件名模板</label>
+      <input type="text" id="filenameTemplate" value="[title]">
+      <div class="info">可用变量: [title], [date], [domain]</div>
+    </div>
+    
+    <div class="form-group checkbox-group">
+      <input type="checkbox" id="promptFilename" checked>
+      <label for="promptFilename">下载前提示文件名</label>
+    </div>
+  </div>
+  
+  <button id="saveSettings">保存设置</button>
+  <div id="status" class="status" style="display: none;"></div>
+  
+  <script src="src/options.js"></script>
+</body>
+</html>
